@@ -65,13 +65,13 @@ for `0 <= p <= 1`, where `µ` is the mean and `σ` is the standard deviation.
 ## Usage
 
 ```javascript
-import quantile from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@esm/index.mjs';
+import quantile from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@v0.1.0-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@esm/index.mjs';
+import { factory } from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@v0.1.0-esm/index.mjs';
 ```
 
 #### quantile( p, mu, sigma )
@@ -157,7 +157,7 @@ y = myquantile( 0.8 );
 <script type="module">
 
 import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import quantile from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@esm/index.mjs';
+import quantile from 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@v0.1.0-esm/index.mjs';
 
 var sigma;
 var mu;
