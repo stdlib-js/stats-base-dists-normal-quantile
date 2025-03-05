@@ -40,6 +40,7 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
+    "@stdlib/constants-float64-sqrt-two": "^0.2.2",
     "@stdlib/math-base-assert-is-nan": "^0.2.2",
     "@stdlib/math-base-napi-ternary": "^0.3.0",
     "@stdlib/math-base-special-erfinv": "^0.3.0",

@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-03-01)
+## Unreleased (2025-03-05)
 
 <section class="features">
 
@@ -20,9 +20,9 @@
 
 ### Closed Issues
 
-This release closes the following issue:
+A total of 2 issues were closed in this release:
 
-[#3781](https://github.com/stdlib-js/stdlib/issues/3781)
+[#3781](https://github.com/stdlib-js/stdlib/issues/3781), [#5712](https://github.com/stdlib-js/stdlib/issues/5712)
 
 </section>
 
@@ -34,6 +34,7 @@ This release closes the following issue:
 
 <details>
 
+-   [`70a7c2f`](https://github.com/stdlib-js/stdlib/commit/70a7c2f519fceab9a8587ddedbc03044b6f93f86) - **chore:** address commit comments in README, benchmarks, and main.c [(#5763)](https://github.com/stdlib-js/stdlib/pull/5763) _(by Abhay Punia, Philipp Burckhardt)_
 -   [`1f5d85a`](https://github.com/stdlib-js/stdlib/commit/1f5d85abbf922cef11f580c053417b61b69c554d) - **feat:** add C implementation for `stats/base/dists/normal/quantile` [(#4383)](https://github.com/stdlib-js/stdlib/pull/4383) _(by Prashant Kumar Yadav, Philipp Burckhardt, stdlib-bot)_
 
 </details>
@@ -46,8 +47,9 @@ This release closes the following issue:
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
+-   Abhay Punia
 -   Philipp Burckhardt
 -   Prashant Kumar Yadav
 
