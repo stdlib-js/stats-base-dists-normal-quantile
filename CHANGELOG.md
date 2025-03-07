@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-03-05)
+## Unreleased (2025-03-07)
 
 <section class="features">
 
@@ -34,6 +34,7 @@ A total of 2 issues were closed in this release:
 
 <details>
 
+-   [`d74f923`](https://github.com/stdlib-js/stdlib/commit/d74f923f42af3dd384a9565d56d0f4eec217ed14) - **chore:** remove extra empty lines [(#5839)](https://github.com/stdlib-js/stdlib/pull/5839) _(by stdlib-bot)_
 -   [`70a7c2f`](https://github.com/stdlib-js/stdlib/commit/70a7c2f519fceab9a8587ddedbc03044b6f93f86) - **chore:** address commit comments in README, benchmarks, and main.c [(#5763)](https://github.com/stdlib-js/stdlib/pull/5763) _(by Abhay Punia, Philipp Burckhardt)_
 -   [`1f5d85a`](https://github.com/stdlib-js/stdlib/commit/1f5d85abbf922cef11f580c053417b61b69c554d) - **feat:** add C implementation for `stats/base/dists/normal/quantile` [(#4383)](https://github.com/stdlib-js/stdlib/pull/4383) _(by Prashant Kumar Yadav, Philipp Burckhardt, stdlib-bot)_
 
