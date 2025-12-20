@@ -58,38 +58,32 @@ for `0 <= p <= 1`, where `µ` is the mean and `σ` is the standard deviation.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-dists-normal-quantile
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-quantile = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var quantile = require( 'path/to/vendor/umd/stats-base-dists-normal-quantile/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.quantile;
-})();
-</script>
+var quantile = require( '@stdlib/stats-base-dists-normal-quantile' );
 ```
 
 #### quantile( p, mu, sigma )
@@ -168,33 +162,19 @@ y = myquantile( 0.8 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-dists-normal-quantile@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var quantile = require( '@stdlib/stats-base-dists-normal-quantile' );
 
-var sigma;
-var mu;
-var p;
-var y;
-var i;
+var opts = {
+    'dtype': 'float64'
+};
+var sigma = uniform( 10, 0.0, 20.0, opts );
+var mu = uniform( 10, -5.0, 5.0, opts );
+var p = uniform( 10, 0.0, 1.0, opts );
 
-for ( i = 0; i < 10; i++ ) {
-    p = randu();
-    mu = (randu() * 10.0) - 5.0;
-    sigma = randu() * 20.0;
-    y = quantile( p, mu, sigma );
-    console.log( 'p: %d, µ: %d, σ: %d, Q(p;µ,σ): %d', p, mu, sigma, y );
-}
-
-})();
-</script>
-</body>
-</html>
+logEachMap( 'p: %0.4f, µ: %0.4f, σ: %0.4f, Q(p;µ,σ): %0.4f', p, mu, sigma, quantile );
 ```
 
 </section>
@@ -203,7 +183,102 @@ for ( i = 0; i < 10; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/stats/base/dists/normal/quantile.h"
+```
+
+#### stdlib_base_dists_normal_quantile( p, mu, sigma )
+
+Evaluates the [quantile function][quantile-function] for a [normal][normal-distribution] distribution with parameters `mu` (mean) and `sigma` (standard deviation).
+
+```c
+double y = stdlib_base_dists_normal_quantile( 0.8, 0.0, 1.0 );
+// returns ~0.842
+```
+
+The function accepts the following arguments:
+
+-   **p**: `[in] double` probability.
+-   **mu**: `[in] double` mean.
+-   **sigma**: `[in] double` standard deviation.
+
+```c
+double stdlib_base_dists_normal_quantile( const double p, const double mu, const double sigma );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/stats/base/dists/normal/quantile.h"
+#include "stdlib/constants/float64/eps.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+static double random_uniform( const double min, const double max ) {
+    double v = (double)rand() / ( (double)RAND_MAX + 1.0 );
+    return min + ( v*(max-min) );
+}
+
+int main( void ) {
+    double sigma;
+    double mu;
+    double p;
+    double y;
+    int i;
+
+    for ( i = 0; i < 10; i++ ) {
+        p = random_uniform( 0.0, 1.0 );
+        mu = random_uniform( -5.0, 5.0 );
+        sigma = random_uniform( STDLIB_CONSTANT_FLOAT64_EPS, 20.0 );
+        y = stdlib_base_dists_normal_quantile( p, mu, sigma );
+        printf( "p:%.4f, µ: %.4f, σ: %.4f, Q(p;µ,σ): %.4f\n", p, mu, sigma, y );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -273,8 +348,8 @@ Copyright &copy; 2016-2025. The Stdlib [Authors][stdlib-authors].
 
 -->
 
-[chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
+[chat-image]: https://img.shields.io/badge/zulip-join_chat-brightgreen.svg
+[chat-url]: https://stdlib.zulipchat.com
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
